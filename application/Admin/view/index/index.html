@@ -1,0 +1,134 @@
+{include file="layout/adminHeader" /}
+	<!-- 左侧侧边导航开始 -->
+	<div class="layui-side layui-side-bg layui-larry-side" id="larry-side">
+        <div class="layui-side-scroll" id="larry-nav-side" lay-filter="side">
+		
+		<!-- 左侧菜单 -->
+		<ul class="layui-nav layui-nav-tree">
+			<li class="layui-nav-item layui-this">
+				<a href="javascript:;" data-url="main.html">
+				    <i class="iconfont icon-home1" data-icon='icon-home'></i>
+					<span>后台首页</span>
+				</a>
+			</li>
+			<!-- 个人信息 -->
+			<li class="layui-nav-item">
+				<a href="javascript:;">
+					<i class="iconfont icon-jiaoseguanli" ></i>
+					<span>商户管理</span>
+					<em class="layui-nav-more"></em>
+				</a>
+				<dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Admin/test')?>">
+                            <i class="iconfont icon-geren1" data-icon='icon-geren1'></i>
+                            <span>ee</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Admin/test2')?>">
+                            <i class="iconfont icon-iconfuzhi01" data-icon='icon-iconfuzhi01'></i>
+                            <span>修改密码1</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="myloginfo.html">
+                            <i class="iconfont icon-piliangicon" data-icon='icon-piliangicon'></i>
+                            <span>日志信息</span>
+                        </a>
+                    </dd>
+                </dl>
+			</li>
+			<!--文章管理-->
+			<li class="layui-nav-item">
+				<a href="javascript:;">
+					<i class="iconfont icon-jiaoseguanli" ></i>
+					<span>文章管理</span>
+					<em class="layui-nav-more"></em>
+				</a>
+				<dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Article/articleCategory')?>">
+                            <i class="iconfont icon-geren1" data-icon='icon-geren1'></i>
+                            <span>分类管理</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="changepwd.html">
+                            <i class="iconfont icon-iconfuzhi01" data-icon='icon-iconfuzhi01'></i>
+                            <span>修改密码</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="myloginfo.html">
+                            <i class="iconfont icon-piliangicon" data-icon='icon-piliangicon'></i>
+                            <span>日志信息</span>
+                        </a>
+                    </dd>
+                </dl>
+			</li>
+			
+			<!--权限管理-->
+			<li class="layui-nav-item">
+				<a href="javascript:;">
+					<i class="iconfont icon-jiaoseguanli" ></i>
+					<span>权限管理</span>
+					<em class="layui-nav-more"></em>
+				</a>
+				<dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Auth/authManager')?>">
+                            <i class="iconfont icon-geren1" data-icon='icon-geren1'></i>
+                            <span>权限管理</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Auth/authGroupmanager')?>">
+                            <i class="iconfont icon-iconfuzhi01" data-icon='icon-iconfuzhi01'></i>
+                            <span>用户组管理</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="myloginfo.html">
+                            <i class="iconfont icon-piliangicon" data-icon='icon-piliangicon'></i>
+                            <span>成员管理</span>
+                        </a>
+                    </dd>
+                </dl>
+			</li>
+			
+			<!--权限管理-->
+			<li class="layui-nav-item">
+				<a href="javascript:;">
+					<i class="iconfont icon-jiaoseguanli" ></i>
+					<span>评论管理</span>
+					<em class="layui-nav-more"></em>
+				</a>
+				<dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Auth/authManager')?>">
+                            <i class="iconfont icon-geren1" data-icon='icon-geren1'></i>
+                            <span>权限管理</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="<?php echo url('Admin/Auth/authGroupmanager')?>">
+                            <i class="iconfont icon-iconfuzhi01" data-icon='icon-iconfuzhi01'></i>
+                            <span>用户组管理</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;" data-url="myloginfo.html">
+                            <i class="iconfont icon-piliangicon" data-icon='icon-piliangicon'></i>
+                            <span>成员管理</span>
+                        </a>
+                    </dd>
+                </dl>
+			</li>
+
+		</ul>
+	    </div>
+	</div>
+
+	<!-- 左侧侧边导航结束 -->
+	{include file="layout/adminFooter" /}
