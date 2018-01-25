@@ -10,9 +10,10 @@ use think\Db;
 use think\Config;
 
 class Article extends Controller {
+
 	public function articleCategory() {
 		$articleCate = new ArticleCategory ();
-		$data = $articleCate::all ();
+		$data = $articleCate->select();
 		$data = ArticleCategory::_reSort ( $data );
 		if (Request::instance ()->isAjax ()) {
 			echo json_encode ( [ 
@@ -59,6 +60,8 @@ class Article extends Controller {
 					$articleid = $article->getLastInsID ();
 					$content ['articleid'] = $articleid;
 					$content ['content'] = $_POST ['content'];
+					Article::saveArticleImg($articleid,$_POST['img']);
+
 				}
 				db ( 'article_content' )->insert ( $content );
 			} );
@@ -70,12 +73,15 @@ class Article extends Controller {
 		$this->assign ( 'cate', $data );
 		return $this->fetch ( "articleManager/articleAdd" );
 	}
-	
-	public function test(){
-		$oss=Config::get('OSS_CONFIG');
-		$ossClient=new \Oss\OssClient($oss['accessKeyId'], $oss['accessKeySecret'], $oss['endpoint']);
-		$oss_return = $ossClient->uploadFile($oss['bucket'], "ss/ccc.jpg", $_FILES['file']['tmp_name']);
-		var_dump($oss_return);
-		exit;
+	public function uploadFile() {
+		if (isset ( $_FILES )) {
+			$article=new Article();
+			$url = $article->createImgUrl ( $_FILES ['file'] ['name'], $_FILES ['file'] ['tmp_name'] );
+			echo json_encode ( [ 
+					'code' => 0,
+					'data' => $url,
+			] );
+		}
 	}
+
 }

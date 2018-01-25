@@ -27,9 +27,9 @@ return [
 				'savePath'      =>  'Uploads/', //保存路径
 				'saveName'      =>  array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组,
 				'domain_dir'=> array(
-						'common' => 'common',
-						'mall'   => 'mall',
-						'ma'     => 'ma',
+						'item' => 'car',
+						'module'   => 'admin',
+						'type'     => 'article',
 						'xcxcgj' => 'xcxcgj',
 				)
 		),

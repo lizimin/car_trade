@@ -83,7 +83,7 @@
 					</div>
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button id="upload"class="layui-btn" lay-submit lay-filter="article">立即提交</button>
+							<button class="layui-btn" lay-submit lay-filter="article">立即提交</button>
 							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>
@@ -109,22 +109,22 @@
 			//执行实例
 			  var uploadInsd=upload.render({
 				    elem: '#test2'
-				    ,url: '/Admin/Article/test'
+				    ,url: '/Admin/Article/uploadFile'
 				    ,multiple: true
 				    ,auto:true
-				    ,bindAction: '#upload'
 				    ,before: function(obj){
 				      //预读本地文件示例，不支持ie8
-				      files = obj.pushFile();
-				      obj.preview(function(index, file, result){
-				    	  console.log("+++++++++++++++");
-				    	  console.log(file);
+				      obj.preview(function(index, file, result){		
 				        $('#demo2').append('<img style="margin-right:10px;width:100px;height:100px" src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+				        
 				      });
 				    }
 				    ,done: function(res){
 				      //上传完毕
-				      console.log(files);
+				      console.log("------------++++++++++++-------");
+				      console.log(res.data);
+				      var str='<input type="hidden" name="img[]" value="'+res.data+'"/>';		    	  
+				      $('#demo2').append(str);
 				    }
 				  });
 
