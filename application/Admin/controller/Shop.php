@@ -6,7 +6,7 @@ use think\Controller;
 use app\Admin\model\Shop;
 use think\Request;
 
-class Shop extends Controller {
+class Shop extends Admin {
 	private $shop;
 	public function _initialize() {
 		$this->shop = new Shop ();

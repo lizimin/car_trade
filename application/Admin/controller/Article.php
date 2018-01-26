@@ -9,7 +9,7 @@ use app\Admin\model\Article;
 use think\Db;
 use think\Config;
 
-class Article extends Controller {
+class Article extends Admin{
 
 	public function articleCategory() {
 		$articleCate = new ArticleCategory ();

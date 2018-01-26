@@ -5,7 +5,7 @@ namespace app\Admin\controller;
 use think\Controller;
 use think\Request;
 
-class User extends Controller {
+class User extends Admin{
 	public function User() {
 		if (Request::instance ()->isAjax ()) {
 			$data = db ( 'admin_user' )->select ();

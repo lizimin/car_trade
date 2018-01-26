@@ -4,37 +4,36 @@ namespace app\Admin\controller;
 
 use think\Controller;
 use think\Db;
+use app\Admin\model\Author;
+use think\Session;
+use think\Request;
 
 class Admin extends Controller {
-	
-
-	public function index() {
-
-		return $this->fetch ( 'index/login' );
+	public function _initialize() {
+		if (! $this->isLogin ()) {
+			$this->redirect ( 'Login/login' );
+		}
+		if (Session::get ( 'type' ) == 0) {
+			if (request ()->controller () != 'Admin' && request ()->action () != 'index') {
+				if ($this->checkAuth ( Session::get ( 'userid' ) )) {
+					return true;
+				} else {
+					$this->error ( '没有权限' );
+				}
+			}
+		}
 	}
-	
-	
-	
-	public function index1() {
-	
+	public function index() {
 		return $this->fetch ( 'index/index' );
 	}
-	
-	
-	public function test(){
-		$Sql='select *from car_admin_usergroup_relation u join car_admin_authgroup_relation g on u.groupid=g.groupid where u.userid=4';
-		$data=Db::query($Sql);
-		$authid="";
-		foreach($data as $k=>$v){
-			$authid.=$v['authid'].",";
+	public function isLogin() {
+		if (! Session::has ( 'userid' )) {
+			return false;
+		} else {
+			return true;
 		}
-		$authid=implode(',', array_unique(explode(',', rtrim($authid, ','))));
-	    $data=$this->isHasauth($authid);
-	    
-		
 	}
-	
-	public function isHasauth($authid){
-		$data=db('admin_auth')->where('authid','in',$authid)->select();
+	public function checkAuth($userid) {
+		return Author::isHasauth ( $userid );
 	}
 }

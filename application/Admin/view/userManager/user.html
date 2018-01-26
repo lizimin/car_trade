@@ -85,7 +85,7 @@ layui.use('table', function(){
     				      '<select name="groupid" lay-verify="required">'+
     				        '<option value=""></option>';  				      
     			  $.ajax({
-    				  url:"<?php echo url('Admin/Auth/authGroupajaxReturn')?>",
+    				  url:"<?php echo url('Admin/Auth/authGroup')?>",
     				  type:"post",
     				  dataType:"json",
     				  success:function(msg){

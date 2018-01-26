@@ -33,7 +33,7 @@ layui.use('table', function(){
   table.render({
     elem: '#authGroup'
     ,height: 315
-    ,url: '<?php echo url("Admin/auth/authGroupajaxReturn")?>' //数据接口
+    ,url: '<?php echo url("Admin/auth/authGroup")?>' //数据接口
     ,page: true //开启分页
     ,cols: [[ //表头
       {field: 'groupid', title: 'ID',width:"15%",sort: true, fixed: 'left'}
@@ -166,7 +166,7 @@ layui.use(['layer','form','element'], function(){
 		  content:'<div class="layui-row ">'+
 		  '<div style="margin-bottom:10px;"></div>'+
 		  '<div class="layui-col-md10 add">'+
-			  '<form class="layui-form" method="post" action="<?php echo url("Admin/auth/authGroupmanagerAdd")?>">'+
+			  '<form class="layui-form" method="post" action="<?php echo url("Admin/auth/authGroupAdd")?>">'+
 			  '<div class="layui-form-item">'+
 			    '<label class="layui-form-label">权限组名</label>'+
 			    '<div class="layui-input-block">'+
@@ -197,7 +197,7 @@ layui.use(['layer','form','element'], function(){
 			'</div>',
 			  success: function(layero, index){
 				  $.ajax({
-					  url:"<?php echo url('Admin/Auth/authAJaxReturn')?>",
+					  url:"<?php echo url('Admin/Auth/auth')?>",
 				  	  type:"get",
 				  	  dataType:"json",
 				  	  success:function(msg){
